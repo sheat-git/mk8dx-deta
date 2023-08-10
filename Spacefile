@@ -1,0 +1,21 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+icon: ./icon.png
+micros:
+  - name: frontend
+    src: ./src/frontend
+    engine: nuxt
+    primary: true
+
+  - name: backend-go
+    src: ./src/backend/go
+    engine: custom
+    commands:
+      - go get
+      - go build main.go
+    run: ./main
+    dev: go run main.go
+    include:
+      - main
+    path: api-go
+    public: true
