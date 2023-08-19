@@ -7,8 +7,8 @@ micros:
     engine: nuxt
     primary: true
 
-  - name: backend-go
-    src: ./src/backend/go
+  - name: backend
+    src: ./src/backend
     engine: custom
     commands:
       - go get
@@ -17,5 +17,9 @@ micros:
     dev: go run main.go
     include:
       - main
-    path: api-go
+    path: api
     public: true
+    presets:
+      env:
+        - name: CORS_ORIGINS
+          default: "[\"*\"]"

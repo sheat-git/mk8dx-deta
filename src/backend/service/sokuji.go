@@ -28,6 +28,7 @@ func GetSokuji(id string) (map[string]interface{}, error) {
 	if err != nil {
 		return nil, err
 	}
+	delete(i, "key")
 	return i, nil
 }
 
